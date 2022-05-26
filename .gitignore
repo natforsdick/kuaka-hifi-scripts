@@ -1,0 +1,10 @@
+# Logs, output and error files
+*.log
+*.out
+*.err
+*.h5
+*.png
+*.js
+agb_output/
+02-assembly/.ipynb_checkpoints/
+*.r
