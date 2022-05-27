@@ -1,7 +1,7 @@
 #!/bin/bash -e
 #SBATCH -A ga03186
 #SBATCH -J jellyfish
-#SBATCH --time=00:40:00
+#SBATCH --time=00:45:00
 #SBATCH -c 36
 #SBATCH --mem=40G
 #SBATCH --mail-user=forsdickn@landcareresearch.co.nz
@@ -19,8 +19,8 @@
 
 ##########
 # PARAMS
-DATADIR=/nesi/nobackup/ga03186/frog-genome/01-preprocessing/
-READS=frog-hifi-cell1
+DATADIR=/nesi/nobackup/ga03186/kuaka-genome/01-preprocessing/
+READS=kuaka-hifi
 mer=21
 CPU=20
 ##########
