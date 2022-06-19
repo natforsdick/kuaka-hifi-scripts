@@ -2,8 +2,8 @@
 
 #SBATCH --account ga03186
 #SBATCH --job-name hifiasm-kuaka
-#SBATCH --cpus-per-task=32
-#SBATCH --mem 36G 
+#SBATCH --cpus-per-task=36
+#SBATCH --mem 50G 
 #SBATCH --time 06:00:00 # When starting this job, set to 04:00:00, then change to 00:30:00 for final mem-intensive step
 #SBATCH --output hifiasm.%j.out
 #SBATCH --error hifiasm.%j.err
@@ -28,19 +28,19 @@ OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/asm1-hifiasm/
 OUTPRE=kuaka-hifiasm
 ##############
 
-#mkdir -p $OUTDIR
+mkdir -p $OUTDIR
 cd $OUTDIR
 
 echo "Starting hifiasm assembly for ${DATA} at " 
 date
-
-hifiasm --primary -t 24 -o ${OUTPRE}.asm ${INDIR}${DATA}
+echo "hifiasm --primary -t 24 -o ${OUTDIR}${OUTPRE}.asm ${INDIR}${DATA}"
+hifiasm --primary -t 24 -o ${OUTDIR}${OUTPRE}.asm ${INDIR}${DATA}
 echo "Finished at " 
 date
 
 echo "Outputting .fa files at"
 date
-awk '/^S/{print ">"$2;print $3}' ${OUTPRE}.asm.hic.p_ctg.gfa > ${OUTPRE}.p_ctg.fa
-awk '/^S/{print ">"$2;print $3}' ${OUTPRE}.asm.hic.a_ctg.gfa > ${OUTPRE}.a_ctg.fa
+awk '/^S/{print ">"$2;print $3}' ${OUTPRE}.asm.p_ctg.gfa > ${OUTPRE}.p_ctg.fa
+awk '/^S/{print ">"$2;print $3}' ${OUTPRE}.asm.a_ctg.gfa > ${OUTPRE}.a_ctg.fa
 echo "Completed hifiasm pipeline at"
 date
