@@ -3,8 +3,8 @@
 #SBATCH --job-name=self-self
 #SBATCH --output=%x.%j.out
 #SBATCH --error=%x.%j.err
-#SBATCH --time=00:03:00
-#SBATCH --mem=10G
+#SBATCH --time=00:05:00
+#SBATCH --mem=16G
 #SBATCH --ntasks=1
 #SBATCH --profile=task 
 #SBATCH --account=ga03186
@@ -24,10 +24,10 @@ module load minimap2/2.20-GCC-9.2.0
 
 #########
 # PARAMS
-OUTDIR=/nesi/nobackup/ga03186/kaki-hifi-asm/asm5-masurca/purge_dups/
-PRE=primary.genome.scf # PREFIX
-PRI=p_ctg
-ALT=a_ctg
+OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/02-assembly/asm1-hifiasm/purge_dups/
+PRE=kuaka-hifiasm # PREFIX
+PRI=-p_ctg
+ALT=-a_ctg
 R1=01- # Designate cutoffs round - either default (01) or modified (02) and whether Primary or Alternate assembly
 R2=02-
 #########
