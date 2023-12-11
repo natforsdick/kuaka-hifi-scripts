@@ -14,9 +14,9 @@ module load BUSCO/5.2.2-gimkl-2020a
 #export AUGUSTUS_CONFIG_PATH=/nesi/project/ga03048/scripts/QC/MyAugustusConfig
 #export BUSCO_CONFIG_FILE="/nesi/project/ga03048/scripts/config.ini"
 
-OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/yahs/
-INDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/yahs/
-samplist='01-kuaka-hifiasm-p_ctg-purged-DT-yahs_scaffolds_final.fa' #'weta-hic-hifiasm.cns.fa'
+OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/mapped-dedup/yahs/
+INDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/mapped-dedup/yahs/
+samplist='01-kuaka-hifiasm-p_ctg-purged-DT-dedup-yahsNMC_scaffolds_final.fa' #'weta-hic-hifiasm.cns.fa'
 INDB=/nesi/nobackup/ga03186/kaki-hifi-asm/asm-stats/busco_downloads/lineages/aves_odb10
 
 for samp in $samplist

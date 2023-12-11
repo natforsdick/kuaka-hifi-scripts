@@ -11,12 +11,12 @@
 # Genome assembly QC - BUSCO alternative
 
 # PARAMS
-INDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05_yahs/
-OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/asm-stats/
+INDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/mapped-dedup/yahs/
+OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/mapped-dedup/yahs/
 DB=/nesi/project/ga03186/aves_odb10
-ASM=01-kuaka-hifiasm-p_ctg-purged-yahs_scaffolds_final.fa
+ASM=01-kuaka-hifiasm-p_ctg-purged-DT-dedup-yahsNMC_scaffolds_final.fa
 
-asm=$(basename $ASM .fa)
+asm=$(basename $ASM .fasta)
 
 cd $INDIR
 module purge

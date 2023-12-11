@@ -14,11 +14,11 @@
 ##########
 # PARAMS #
 YAHSJUICE=/nesi/project/ga03186/scripts/Hi-C_scripts/yahs/juicer
-OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/yahs/
+OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/mapped-dedup/yahs/
 JUICER=/nesi/nobackup/ga03048/juicer/scripts/juicer_tools.1.9.9_jcuda.0.8.jar
 REF_DIR=/nesi/nobackup/ga03186/kuaka-genome/03-purge-dups/
 REF=01-kuaka-hifiasm-p_ctg-purged.fa
-REFPRE=01-kuaka-hifiasm-p_ctg-purged-DT-yahs
+REFPRE=01-kuaka-hifiasm-p_ctg-purged-DT-dedup-yahsNMC
 ##########
 
 cd $OUTDIR
