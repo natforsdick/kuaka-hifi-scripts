@@ -3,7 +3,7 @@
 #SBATCH -J compleasm # job name (shows up in the queue)
 #SBATCH -c 22
 #SBATCH --mem=14GB #
-#SBATCH --time=01:00:00 #Walltime (HH:MM:SS)
+#SBATCH --time=01:30:00 #Walltime (HH:MM:SS)
 #SBATCH --output %x.%j.out #
 #SBATCH --error %x.%j.err #
 
@@ -11,12 +11,12 @@
 # Genome assembly QC - BUSCO alternative
 
 # PARAMS
-INDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/mapped-dedup/yahs/
-OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/mapped-dedup/yahs/
+INDIR=/nesi/nobackup/ga03186/kuaka-genome/ref-genomes/
+OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/ref-genomes/
 DB=/nesi/project/ga03186/aves_odb10
-ASM=01-kuaka-hifiasm-p_ctg-purged-DT-dedup-yahsNMC_scaffolds_final.fa
+ASM=GCA_013400755.1_ASM1340075v1_genomic.fna
 
-asm=$(basename $ASM .fasta)
+asm=$(basename $ASM .fna)
 
 cd $INDIR
 module purge

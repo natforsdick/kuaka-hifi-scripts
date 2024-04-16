@@ -14,7 +14,7 @@
 # Passing aligned HiC Weta data to YAHS scaffolding genome assemblies
 ################################
 
-REF_DIR='/nesi/nobackup/ga03186/kuaka-genome/03-purge-dups/'
+REF_DIR='/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/'
 REF='01-kuaka-hifiasm-p_ctg-purged.fa'
 echo “Making FAI from reference assembly”
 cd $REF_DIR
@@ -32,8 +32,8 @@ fi
 # make output directory prior to running.
 YAHS='/nesi/project/ga03186/scripts/Hi-C_scripts/yahs/yahs'
 IN_DIR='/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/'
-IN_BAM='01-kuaka-hifiasm-p_ctg-purged-clean-omnic.bam'
-OUT_DIR='/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/mapped-dedup/yahs/'
+IN_BAM='01-kuaka-hifiasm-p_ctg-purged-clean-omnic-mapped.PT.bam'
+OUT_DIR='/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/05b-Dovetail-OmniC/all-data-yahs/'
 
 if [ ! -e ${OUT_DIR} ]; then
 	mkdir -p ${OUT_DIR}
@@ -45,7 +45,7 @@ cd ${OUT_DIR}
 echo "Starting YAHS for ${IN_BAM} to scaffold ${REF}"
 date
 
-$YAHS ${REF_DIR}${REF} ${IN_DIR}${IN_BAM} -o 01-kuaka-hifiasm-p_ctg-purged-DT-dedup-yahsNMC --no-mem-check
+$YAHS ${REF_DIR}${REF} ${IN_DIR}${IN_BAM} -o 01-kuaka-hifiasm-p_ctg-purged-clean-omnic-mapped.PT-yahsNMC --no-mem-check
 
 echo "Completed YAHS scaffolding"
 date

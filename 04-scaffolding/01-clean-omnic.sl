@@ -3,7 +3,7 @@
 #SBATCH --job-name=fastp 
 #SBATCH --cpus-per-task=12 
 #SBATCH --mem=16G
-#SBATCH --time=2:00:00 
+#SBATCH --time=4:00:00 
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-user=forsdickn@landcareresearch.co.nz
 #SBATCH --output %x.%j.out # CHANGE number for new run
@@ -14,7 +14,7 @@
 OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/05-scaffolding/
 ASSEMBLY=/nesi/nobackup/ga03186/kuaka-genome/03-purge-dups/01-kuaka-hifiasm-p_ctg-purged.fa
 APREFIX=kuaka_omnic
-HIC_DIR=/nesi/project/ga03186/data/kuaka-HiC/
+HIC_DIR=/nesi/nobackup/ga03186/data/kuaka-Omni-C/
 HIC_RAW1=${HIC_DIR}EXT041-07_L001_ds.75a4cbe42df64c0598d205c5a4e312df/Kuaka-OmniC-D206851_S1_L001_R
 READ1=${HIC_RAW1}1_001.fastq.gz
 READ2=${HIC_RAW1}2_001.fastq.gz
