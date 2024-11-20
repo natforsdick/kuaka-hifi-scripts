@@ -1,0 +1,42 @@
+#!/bin/bash -e
+#SBATCH -A ga03186
+#SBATCH -J psmc-mapping
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=4G
+#SBATCH -t 15:00:00
+#SBATCH --array=1-2
+#SBATCH --out %x.%j.out
+#SBATCH --err %x.%j.err
+
+# run bootstrapping for psmc
+
+OUTDIR=/nesi/nobackup/ga03186/kuaka-genome/psmc/boots/
+cd $OUTDIR
+
+# set parameter space for psmc
+
+module purge
+module load psmc/0.6.5-gimkl-2018b
+
+fastq=`cat ../samplist.txt | awk -v line=$SLURM_ARRAY_TASK_ID '{if(NR == line) print $0}'`
+echo $SLURM_ARRAY_TASK_ID
+
+filename=$(basename "$fastq")
+filename=${filename%.fq.gz}
+
+# split to run smaller chunks
+echo splitting $fastq
+splitfa ../${filename}.psmcfa > ${filename}_split.psmcfa
+
+# calculate psmc main
+echo calculating single psmc for $fastq
+psmc -N25 -t9 -r5 -p "4+25*2+4+8" -o ${filename}-2.psmc ../${filename}.psmcfa
+
+# perform bootstrapping
+echo bootstrapping $fastq
+seq 100 | xargs -i -n 1 -P 8 echo psmc -N25 -t9 -r5 -p "4+25*2+4+8" -o ${filename}_round-{}.psmc ${filename}_split.psmcfa | sh
+
+# combine results
+echo combining results for $fastq
+cat ../${filename}-2.psmc ${filename}_round-*.psmc > ${filename}_combined.psmc
+echo "completed bootstrapping for $filename"
